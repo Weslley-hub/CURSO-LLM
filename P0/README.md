@@ -70,9 +70,11 @@ No Mac, sem essa variável, `python app.py` pede a mensagem com `input()`.
 
 O `--platform linux/amd64` é necessário em Mac com Apple Silicon. Sem ele, a imagem não roda no servidor.
 
+A tag local é `p0-extracao:latest`. O arquivo para o portal se chama `weslleyfernando71609@gmail.com.tar`: um `@` no nome da imagem quebra a referência do Docker, porque esse caractere separa o digest.
+
 ```bash
-docker build --platform linux/amd64 -t weslleyfernando71609@gmail.com:latest .
-docker save --output weslleyfernando71609@gmail.com.tar weslleyfernando71609@gmail.com:latest
+docker build --platform linux/amd64 -t p0-extracao:latest .
+docker save --output weslleyfernando71609@gmail.com.tar p0-extracao:latest
 ```
 
 O `.dockerignore` deixa de fora `.env`, `.venv` e `.git`. No portal, `OLLAMA_HOST`, `OLLAMA_MODEL` e `ENTRADA_TEXTO` entram pelo ambiente: a imagem não carrega o `.env`.
